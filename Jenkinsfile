@@ -6,7 +6,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git url:'https://github.com/nirmata-add-ons/demo-1.git', branch:'master'
+        git url:'https://github.com/nirmata-add-ons/demo-1.git', branch:'main'
       }
     }
 
