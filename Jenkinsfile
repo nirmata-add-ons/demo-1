@@ -14,14 +14,9 @@ pipeline {
       }
     }
 
-    stage('Deploy App to Kubernetes') {     
+    stage('Deploy App') {
       steps {
-        container('kubectl') {
-          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
-            sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" nginx.yaml'
-            sh 'kubectl apply -f nginx.yaml'
-          }
-        }
+        sh 'kubectl apply -f nginx.yaml'
       }
     }
 
