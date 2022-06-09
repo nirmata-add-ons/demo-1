@@ -11,7 +11,7 @@ pipeline {
 
     stage('Deploy App') {
       steps {
-        sh 'kubectl get pods -v=8'
+        sh 'kubectl get nodes'
       }
     }
 
