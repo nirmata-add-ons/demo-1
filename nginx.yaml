@@ -16,5 +16,5 @@ spec:
         app: web
     spec:
       containers:
-      - image: nginx
+      - image: nirmatainstaller/nginx
         name: mynginx
