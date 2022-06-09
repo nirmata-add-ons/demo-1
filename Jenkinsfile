@@ -11,7 +11,7 @@ pipeline {
 
     stage('Deploy App') {
       steps {
-        sh 'kubectl get nodes'
+        sh 'kubectl create -f /var/lib/jenkins/workspace/demo-2022/nginx.yaml'
       }
     }
 
