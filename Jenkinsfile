@@ -1,6 +1,5 @@
 pipeline {
   
-
   stages {
 
     stage('Checkout Source') {
