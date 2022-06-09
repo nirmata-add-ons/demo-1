@@ -11,7 +11,7 @@ pipeline {
 
     stage('Deploy App') {
       steps {
-        sh 'sudo kubectl --kubeconfig=/root/.kube/config create -f /var/lib/jenkins/workspace/demo-2022/nginx.yaml'
+        sh 'sudo kubectl --kubeconfig=/root/.kube/config create -f nginx.yaml'
       }
     }
 
