@@ -16,7 +16,7 @@ spec:
         app: web
     spec:
       containers:
-      - image: nirmatainstaller/nginx:sha256-99d0a53e3718cef59443558607d1e100b325d6a2b678cd2a48b05e5e22ffeb49.sig
+      - image: nginx
         name: mynginx
 
 ---
