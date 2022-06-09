@@ -1,4 +1,8 @@
 pipeline {
+  
+    options {
+    ansiColor('xterm')
+  }
 
   agent { label 'kubepod' }
 
@@ -10,10 +14,13 @@ pipeline {
       }
     }
 
-    stage('Deploy App') {
+    stage('Deploy App to Kubernetes') {     
       steps {
-        script {
-          kubernetesDeploy(configs: "nginx.yaml", kubeconfigId: "mykubeconfig")
+        container('kubectl') {
+          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+            sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" nginx.yaml'
+            sh 'kubectl apply -f nginx.yaml'
+          }
         }
       }
     }
